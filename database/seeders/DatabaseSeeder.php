@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(1)->create([
             'name' => 'Cecilia',
-            'email' => 'cecilia@windesheim.com',
+            'email' => 'Cecilia@windesheim.nl',
             'email_verified_at' => now(),
             'is_admin' => true,
-            'password' => Hash::make('cecilia'),
+            'password' => Hash::make('Cecilia'),
         ]);
     }
 }

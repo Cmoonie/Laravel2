@@ -12,7 +12,7 @@ class Orders extends Model
      *
      * @var list<string>
      */
-    protected $fillable = [
+    protected $fillable = [ // works with the factory and fulls in the colums in the table
         'user_id',
         'festival_id',
         'quantity',
@@ -20,11 +20,11 @@ class Orders extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class); //model user is only conected to create_user_tabel in database
     }
 
     public function festival(): BelongsTo
     {
-        return $this->belongsTo(Festival::class);
+        return $this->belongsTo(Festival::class);//Model Festival is only conected to create_festival in database
     }
 }

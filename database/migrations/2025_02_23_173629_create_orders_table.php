@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('festival_id')->constrained('festival');
-            $table->integer('quantity');
+            $table->foreignId('user_id')->constrained('users');// cart is linked to user that ordered
+            $table->foreignId('festival_id')->constrained('festival');//cart ->user->festival
+            $table->integer('quantity');//quanity->tickets->ordered
             $table->timestamps();
         });
     }
