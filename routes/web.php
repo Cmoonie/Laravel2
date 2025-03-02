@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('profile.guest.welcome');
 })->name('home');;
 
 Route::get('/dashboard', function () {
@@ -12,9 +12,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/admin', [ProfileController::class, 'edit'])->name('admin.partials.edit');
+    Route::patch('/admin', [ProfileController::class, 'update'])->name('admin.partials.update');
+    Route::delete('/admin', [ProfileController::class, 'destroy'])->name('admin.partials.destroy');
 });
 
 require __DIR__.'/auth.php';

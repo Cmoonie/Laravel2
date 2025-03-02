@@ -23,9 +23,12 @@
         <nav aria-label="Main Navigation">
             <ul>
                 <li><a href="{{ route('home') }}" aria-label="Home">Home</a></li>
-                <li><a href="{{ route('login') }}" aria-label="Login">Login</a></li>
-                <li><a href="{{ route('register') }}" aria-label="Register">Register</a></li>
             </ul>
+
+            <div class="flex justify-end">
+                <a href="{{ route('login') }}" aria-label="Login">Login</a>
+                <a href="{{ route('register') }}"  aria-label="Register">Register</a>
+            </div>
         </nav>
     </header>
 
