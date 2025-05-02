@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');// cart is linked to user that ordered
-            $table->foreignId('festival_id')->constrained('festival');//cart ->user->festival
-            $table->integer('quantity');//quanity->tickets->ordered
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('festival_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('festival', function (Blueprint $table) {
+        Schema::create('festivals', function (Blueprint $table) {
             $table->id(); //Primary key for the festival
             $table->string('name'); // unique festival name
             $table->string('slug'); //after de dash on the url the name

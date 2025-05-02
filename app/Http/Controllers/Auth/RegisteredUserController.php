@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'points' => 50, //<<<<<Registerden krijgen automatisch 50  punten
         ]);
 
         event(new Registered($user));

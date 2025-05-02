@@ -10,13 +10,37 @@
                     </a>
                 </div>
 
+                <!-- Alleen zichtbaar voor admins -->
+                @auth
+                    @if (Auth::user()->is_admin)
+                        <x-nav-link :href="route('admin.festivals.index')" :active="request()->routeIs('admin.festivals.index')">
+                            Festivals beheren
+                        </x-nav-link>
+                    @endif
+                @endauth
+
                 <!-- Navigation Links -->
+                @if(auth()->check() && auth()->user()->is_admin)
+                    <a href="{{ route('admin.festivals.index') }}">Admin Festivalbeheer</a>
+                @endif
+
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+
+                <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
+                    {{ __('Profiel bewerken') }}
+                </x-nav-link>
             </div>
+
+            <!-- Navigatie-link naar dashboard -->
+            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ Auth::user()->is_admin ? 'Admin Dashboard' : 'Mijn Dashboard' }}
+            </x-nav-link>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
