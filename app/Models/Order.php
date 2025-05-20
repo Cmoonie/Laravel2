@@ -23,6 +23,12 @@ class Order extends Model
         return $this->belongsTo(User::class); //model user is only conected to create_user_tabel in database
     }
 
+    public function orders()
+    {
+        return $this->hasMany(\App\Models\Order::class);
+    }
+
+
     public function festival(): BelongsTo
     {
         return $this->belongsTo(Festival::class);//Model Festival is only conected to create_festival in database

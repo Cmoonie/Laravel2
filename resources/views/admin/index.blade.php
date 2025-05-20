@@ -1,5 +1,8 @@
 {{--Basislayout als beheerder--}}
+
 <x-app-layout>
+    <p>DEBUG: ADMIN FESTIVAL INDEX WORDT GEBRUIKT</p>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 Festivals beheren
@@ -26,8 +29,8 @@ Festivals beheren
         <td>{{ $festival->location }}</td>
         <td>{{ $festival->scheduled_at->format('d-m-Y') }}</td>
         <td>
-            <a href="#" class="text-blue-500">Bewerken</a> |
-            <form action="#" method="POST" class="inline">
+            <a href="{{ route('festivals.edit', $festival->id) }}" class="text-blue-500">Bewerken</a> |
+            <form action="{{ route('festivals.destroy', $festival->id) }}" method="POST" class="inline">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500" type="submit">Verwijderen</button>

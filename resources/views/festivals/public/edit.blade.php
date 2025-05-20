@@ -58,7 +58,7 @@
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
                         Festival bijwerken
                     </button>
-                    <a href="{{ route('festivals.index') }}" class="text-blue-600 hover:underline">Terug</a>
+                    <a href="{{ route('admin.festivals.index') }}" class="text-blue-600 hover:underline">Terug</a>
                 </div>
             </form>
         </div>

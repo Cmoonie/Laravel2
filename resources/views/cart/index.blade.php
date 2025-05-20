@@ -50,14 +50,14 @@
                 </div>
 
             <div class="mt-6">
-                <a href="{{ route('festivals.index') }}" class="text-blue-500 hover:text-blue-700">
+                <a href="{{ route('festivals.public.index') }}" class="text-blue-500 hover:text-blue-700">
                     ← Verder festivals bekijken
                 </a>
             </div>
         @else
             <p class="text-gray-600">Je winkelmandje is nog leeg.</p>
             <div class="mt-4">
-                <a href="{{ route('festivals.index') }}" class="text-blue-500 hover:text-blue-700">
+                <a href="{{ route('festivals.public.index') }}" class="text-blue-500 hover:text-blue-700">
                     ← Festivals bekijken
                 </a>
             </div>

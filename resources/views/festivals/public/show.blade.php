@@ -30,7 +30,7 @@
             <p><strong>Datum:</strong> {{ $festival->scheduled_at->format('d-m-Y H:i') }}</p>
 
             <div class="mt-6">
-                <a href="{{ route('festivals.index') }}" class="text-blue-500 hover:text-blue-700">← Terug naar festivals</a>
+                <a href="{{ route('festivals.public.index') }}" class="text-blue-500 hover:text-blue-700">← Terug naar festivals</a>
             </div>
         </div>
     </div>

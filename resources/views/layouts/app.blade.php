@@ -12,31 +12,6 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
-    <!-- Navigation Links -->
-    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-            {{ __('Home') }}
-        </x-nav-link>
-
-        <x-nav-link :href="route('festivals.public.index')" :active="request()->routeIs('festivals.public.index')">
-            {{ __('Festivals') }}
-        </x-nav-link>
-
-        @auth
-            @if (!auth()->user()->is_admin)
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('festivals.public.index')" :active="request()->routeIs('festivals.public.index')">
-                        {{ __('Festivals') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
-                        {{ __('Winkelmand') }}
-                    </x-nav-link>
-                </div>
-            @endif
-        @endauth
-
-
 
         <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

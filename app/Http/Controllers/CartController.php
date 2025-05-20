@@ -16,7 +16,6 @@ class CartController extends Controller
     public function add(Festival $festival)
     {
         $cart = session()->get('cart', []);
-
         $cart[] = [
             'id' => $festival->id,
             'name' => $festival->name,
@@ -41,28 +40,36 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Festival verwijderd uit winkelmandje.');
     }
 
+
     public function checkout()
     {
         $cart = session()->get('cart', []);
         $user = auth()->user();
 
         $aantalFestivals = count($cart);
-        $puntenNodig = count($cart) * 10; //  10 punten per festival
+        $puntenNodig = $aantalFestivals * 10;
 
         if ($user->points < $puntenNodig) {
             return redirect()->route('cart.index')->with('error', 'Niet genoeg punten!');
         }
-        // Punten afschrijven
+
+        // Punten verwerken
         $user->points -= $puntenNodig;
-
-        // Punten terugverdienen (2 punten per geboekt festival)
         $user->points += ($aantalFestivals * 2);
-
         $user->save();
+
+        // Bestellingen opslaan
+        foreach ($cart as $festival) {
+            \App\Models\Order::create([
+                'user_id' => $user->id,
+                'festival_id' => $festival['id'],
+            ]);
+        }
 
         session()->forget('cart');
 
         return redirect()->route('dashboard')->with('success', 'Boeking voltooid! Je punten zijn bijgewerkt.');
     }
+
 
 }

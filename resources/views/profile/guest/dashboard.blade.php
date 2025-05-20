@@ -4,6 +4,12 @@
             Gebruikersdashboard
         </h2>
     </x-slot>
+    @if(session('success'))
+        <div class="bg-green-100 text-green-800 border border-green-400 p-4 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
@@ -22,8 +28,24 @@
                     → Ga naar je winkelmandje
                 </a>
             </div>
+            @if($orders->count() > 0)
+                <div class="mt-6">
+                    <h3 class="text-lg font-semibold mb-2">Jouw geboekte festivals</h3>
+                    <ul class="list-disc list-inside space-y-1">
+                        @foreach($orders as $order)
+                            <li>
+                                <strong>{{ $order->festival->name }}</strong> –
+                                {{ \Carbon\Carbon::parse($order->festival->scheduled_at)->format('d-m-Y H:i') }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @else
+                <p class="mt-6 text-gray-600">Je hebt nog geen festivals geboekt.</p>
+            @endif
         </div>
     </div>
+
 </x-app-layout>
 
 

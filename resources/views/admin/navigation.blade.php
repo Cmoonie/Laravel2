@@ -29,17 +29,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-
-
-                <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
-                    {{ __('Profiel bewerken') }}
-                </x-nav-link>
             </div>
-
-            <!-- Navigatie-link naar dashboard -->
-            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ Auth::user()->is_admin ? 'Admin Dashboard' : 'Mijn Dashboard' }}
-            </x-nav-link>
 
 
             <!-- Settings Dropdown -->
@@ -58,7 +48,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -104,7 +94,7 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-responsive-nav-link :href="route('profile')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
