@@ -17,40 +17,43 @@
         </style>
     @endif
 </head>
-<body class="font-sans antialiased dark:bg-black dark:text-white/50">
-<div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-    <header role="banner">
-        <nav aria-label="Main Navigation">
-            <ul>
-                <li><a href="{{ route('home') }}" aria-label="Home">Home</a></li>
+<body class="font-sans antialiased bg-white text-black">
+<div class="bg-gray-50 text-black dark:bg-white dark:text-black">
+    <header role="banner" class="bg-white shadow p-4">
+        <nav aria-label="Main Navigation" class="max-w-7xl mx-auto flex justify-between items-center">
+            <ul class="flex space-x-6">
+                <li><a href="{{ route('home') }}" class="text-gray-700 hover:underline" aria-label="Home">Home</a></li>
             </ul>
 
-            <div class="flex justify-end">
-                <a href="{{ route('login') }}" aria-label="Login">Login</a>
-                <a href="{{ route('register') }}"  aria-label="Register">Register</a>
+            <div class="flex space-x-8">
+                <a href="{{ route('login') }}" class="text-gray-700 hover:underline" aria-label="Login">Login</a>
+                <a href="{{ route('register') }}" class="text-gray-700 hover:underline" aria-label="Register">Register</a>
             </div>
         </nav>
     </header>
 
     <main role="main" class="relative min-h-screen flex flex-col items-center justify-center">
-        <section aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Welkom bij Festibusje - Je ideale busreisplanner</h1>
-            <p>Plan eenvoudig je busreis naar festivals met onze gebruiksvriendelijke planner.</p>
+        <section aria-labelledby="hero-heading" class="text-center my-10">
+            <h1 id="hero-heading" class="text-4xl font-bold text-blue-600 dark:text-blue-600">
+                Welkom bij Festibusje - Je ideale busreisplanner</h1>
+            <p class="text-lg text-gray-700 mt-2">
+                Plan eenvoudig je busreis naar festivals met onze gebruiksvriendelijke planner.</p>
         </section>
 
-        <section aria-labelledby="features-heading">
-            <h2 id="features-heading">Waarom kiezen voor Festibusje?</h2>
-            <ul>
-                <li>Gemakkelijke boekingen</li>
-                <li>Betaalbare prijzen</li>
-                <li>Toegankelijk voor iedereen</li>
-            </ul>
-        </section>
+        <img src="{{ asset('images/busje1.jpg') }}" alt="Welkomsafbeelding" class="w-40 md:w-48 lg:w-64 h-auto mx-auto">
+
+
+{{--        <section aria-labelledby="features-heading">--}}
+{{--            <h2 id="features-heading">Waarom kiezen voor Festibusje?</h2>--}}
+{{--            <ul>--}}
+{{--                <li>Gemakkelijke boekingen</li>--}}
+{{--                <li>Betaalbare prijzen</li>--}}
+{{--                <li>Toegankelijk voor iedereen</li>--}}
+{{--            </ul>--}}
+{{--        </section>--}}
     </main>
+@include ('admin.partials.footer')
 
-    <footer role="contentinfo">
-        <p>&copy; {{ date('Y') }} Festibusje. Alle rechten voorbehouden.</p>
-    </footer>
 </div>
 </body>
 </html>
