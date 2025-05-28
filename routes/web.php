@@ -5,6 +5,10 @@ use App\Http\Controllers\FestivalController;
 use App\Http\Controllers\AdminFestivalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CoinController;
+
+Route::get('/coins/buy', [CoinController::class, 'create'])->name('coins.buy');
+Route::post('/coins/buy', [CoinController::class, 'store'])->name('coins.store');
 
 Route::get('/', function () {
     return view('profile.guest.welcome');

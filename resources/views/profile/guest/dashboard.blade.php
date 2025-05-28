@@ -27,6 +27,11 @@
                 <a href="{{ route('cart.index') }}" class="text-blue-600 hover:underline">
                     → Ga naar je winkelmandje
                 </a>
+                <br>
+
+                <a href="{{ route('coins.buy') }}" class="text-white bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded mt-4 inline-block">
+                    💰 Muntjes kopen
+                </a>
             </div>
             @if($orders->count() > 0)
                 <div class="mt-6">
