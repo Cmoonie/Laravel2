@@ -1,11 +1,10 @@
 {{--Basislayout als beheerder--}}
 
 <x-app-layout>
-    <p>DEBUG: ADMIN FESTIVAL INDEX WORDT GEBRUIKT</p>
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-Festivals beheren
+Admin Festivals beheer
 </h2>
     </x-slot>
 

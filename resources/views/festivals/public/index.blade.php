@@ -5,10 +5,10 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Alle Festivals
         </h2>
-        <nav class="space-x-4">
-            <a href="{{ route('home') }}" class="text-blue-500 hover:underline">Home</a>
-            <a href="{{ route('festivals.public.index') }}" class="text-blue-500 hover:underline">Festivals</a>
-        </nav>
+{{--        <nav class="space-x-4">--}}
+{{--            <a href="{{ route('home') }}" class="text-blue-500 hover:underline">Home</a>--}}
+{{--            <a href="{{ route('festivals.public.index') }}" class="text-blue-500 hover:underline">Festivals</a>--}}
+{{--        </nav>--}}
         </div>
     </x-slot>
 
