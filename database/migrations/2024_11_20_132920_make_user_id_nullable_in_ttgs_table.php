@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ttgs', function (Blueprint $table) {
-            Schema::table('ttgs', function (Blueprint $table) {
-                $table->foreignId('user_id')->nullable()->change();
-            });
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained('users')
+                ->nullOnDelete();
         });
     }
 
@@ -24,9 +25,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('ttgs', function (Blueprint $table) {
-            Schema::table('ttgs', function (Blueprint $table) {
-                $table->foreignId('user_id')->nullable(false)->change();
-            });
+            $table->dropConstrainedForeignId('user_id');
         });
     }
 };
